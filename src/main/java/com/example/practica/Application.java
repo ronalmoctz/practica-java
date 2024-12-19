@@ -12,6 +12,7 @@ import org.springframework.context.annotation.Bean;
 
 import com.example.practica.run.Location;
 import com.example.practica.run.Run;
+import com.example.practica.run.RunRepository;
 
 @SpringBootApplication
 public class Application {
@@ -23,12 +24,13 @@ public class Application {
 		SpringApplication.run(Application.class, args);
 	}
 
-	@Bean
-	CommandLineRunner runner() {
-		return args -> {
-			Run run = new Run(1, "First Run", LocalDateTime.now(), LocalDateTime.now().plus(1, ChronoUnit.HOURS), 5,
-					Location.OUTDOOR);
-			log.info("Run: " + run);
-		};
-	}
+	// @Bean
+	// CommandLineRunner runner(RunRepository runRepository) {
+	// return args -> {
+	// Run run = new Run(1, "First Run", LocalDateTime.now(),
+	// LocalDateTime.now().plus(1, ChronoUnit.HOURS), 5,
+	// Location.OUTDOOR);
+	// runRepository.create(run);
+	// };
+	// }
 }
